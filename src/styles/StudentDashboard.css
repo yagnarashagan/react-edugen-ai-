@@ -1,0 +1,275 @@
+.student-dashboard-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #f4f7fc;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: #0438af;
+  color: white;
+  height: 100vh;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar.active {
+  width: 250px;
+  align-items: flex-start;
+}
+
+.sidebar .profile {
+  text-align: center;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile h3 {
+  font-size: 16px;
+  margin: 0;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sidebar.active .profile h3 {
+  display: block;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.sidebar ul li i {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.sidebar.active ul li i {
+  margin-left: 20px;
+}
+
+.sidebar ul li span {
+  display: none;
+  margin-left: 10px;
+}
+
+.sidebar.active ul li span {
+  display: inline;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 70px;
+  margin-right: 350px;
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+  max-width: calc(100% - 420px);
+}
+
+.main-content.active {
+  margin-left: 250px;
+  max-width: calc(100% - 600px);
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: #0438af;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.search-bar {
+  flex-grow: 5;
+  width: 50%;
+  max-width: 600px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 16px;
+}
+
+.toggle-container {
+  display: none;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 500px;
+  border: 1px solid #ddd;
+}
+
+.toggle-container.active {
+  display: block;
+}
+
+.assignments,
+.lessons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.assignment-box,
+.lesson-box {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+
+.container-body {
+  padding: 20px;
+  min-height: 550px;
+  background: #ffffff;
+  border-radius: 0 0 10px 10px;
+}
+
+.empty-message {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  color: #555;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#tasks-container .container-header {
+  background-color: #607d8b;
+}
+
+#assignments-container .container-header {
+  background-color: #3f51b5;
+}
+
+#circular-container .container-header {
+  background-color: #4caf50;
+}
+
+.profile-content {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.profile-content:hover {
+  background: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 70px;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .main-content.active {
+    margin-left: 250px;
+  }
+
+  .assignments,
+  .lessons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .assignment-box,
+  .lesson-box {
+    width: 90%;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .sidebar.active {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 50px;
+    padding: 10px;
+  }
+
+  .main-content.active {
+    margin-left: 200px;
+  }
+
+  .profile-content h3 {
+    font-size: 16px;
+  }
+
+  .profile-content p {
+    font-size: 14px;
+  }
+}

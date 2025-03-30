@@ -1,0 +1,257 @@
+.staff-dashboard-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #f4f7fc;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: #0438af;
+  color: white;
+  height: 100vh;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar.active {
+  width: 250px;
+  align-items: flex-start;
+}
+
+.sidebar .profile {
+  text-align: center;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar .profile img {
+  width: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sidebar .profile h3 {
+  font-size: 16px;
+  display: none;
+}
+
+.sidebar.active .profile h3 {
+  display: block;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.sidebar ul li i {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.sidebar ul li span {
+  display: none;
+  margin-left: 10px;
+}
+
+.sidebar.active ul li span {
+  display: inline;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 70px;
+  margin-right: 350px;
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+  max-width: calc(100% - 420px);
+}
+
+.main-content.active {
+  margin-left: 250px;
+  max-width: calc(100% - 600px);
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: #0438af;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.search-bar {
+  flex-grow: 5;
+  width: 50%;
+  max-width: 600px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 16px;
+}
+
+.quick-stats {
+  display: block;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.stat-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.stat-box:hover {
+  transform: scale(1.05);
+}
+
+.stat-box i {
+  font-size: 30px;
+  color: #0438af;
+  margin-bottom: 10px;
+}
+
+.toggle-container {
+  display: none;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 500px;
+  border: 1px solid #ddd;
+}
+
+.toggle-container.active {
+  display: block;
+}
+
+.container-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+
+.container-body {
+  padding: 20px;
+  min-height: 550px;
+  background: #ffea00;
+  border-radius: 0 0 10px 10px;
+}
+
+.empty-message {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  color: #555;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#tasks-container .container-header {
+  background-color: #607d8b;
+}
+
+#assignments-container .container-header {
+  background-color: #3f51b5;
+}
+
+#results-container .container-header {
+  background-color: #1ed5e9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .main-content.active {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .sidebar.active {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 50px;
+    padding: 10px;
+  }
+
+  .main-content.active {
+    margin-left: 200px;
+  }
+
+  .stat-box h3 {
+    font-size: 16px;
+  }
+
+  .stat-box p {
+    font-size: 14px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: none;
+  }
+}
